@@ -33,6 +33,15 @@ function setup() {
   // The sound model will continuously listen to the microphone
   classifier.classify(gotResult);
   
+  button = createButton("start");
+  button.size(150, 80);
+  button.position(wC/2, hC/2);
+  button.mouseClicked(startMIC);
+  button.style("font-family", "Helvetica");
+  button.style("font-size", "48px");
+  
+  mic = new p5.AudioIn();
+  
    cam = createCapture(VIDEO);
 }
 
@@ -79,6 +88,15 @@ function draw() {
   rect(0, 0, wC, hC);
     
   };
+  
+  function startMIC() {
+  
+  getAudioContext();
+  userStartAudio();
+  button.hide();
+  mic.start();
+  
+}
   
 
 
